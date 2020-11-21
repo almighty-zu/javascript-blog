@@ -39,13 +39,15 @@
     const ArticleSelector = clickedElement.getAttribute('href');
     console.log(ArticleSelector);
   
-    /* find the correct article using the selector (value of 'href' attribute) */
+    /* [DONE] find the correct article using the selector (value of 'href' attribute) */
 
     const targetArticle = document.querySelector(ArticleSelector);
 
     console.log(targetArticle);
   
-    /* add class 'active' to the correct article */
+    /* [DONE] add class 'active' to the correct article */
+
+    targetArticle.classList.add('active');
 
   }
   
