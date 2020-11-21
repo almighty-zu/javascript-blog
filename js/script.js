@@ -40,8 +40,13 @@
     console.log(ArticleSelector);
   
     /* find the correct article using the selector (value of 'href' attribute) */
+
+    const targetArticle = document.querySelector(ArticleSelector);
+
+    console.log(targetArticle);
   
     /* add class 'active' to the correct article */
+
   }
   
   const links = document.querySelectorAll('.titles a');
