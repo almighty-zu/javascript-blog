@@ -81,7 +81,7 @@
 
       /*Get the article id*/
 
-      /*const ArticleId = article.getAttribute('id');
+      const ArticleId = article.getAttribute('id');
       console.log(ArticleId);
 
       /*find the title element*/
