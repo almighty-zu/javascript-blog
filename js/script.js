@@ -51,11 +51,13 @@
 
   }
   
-  const links = document.querySelectorAll('.titles a');
+  /*const links = document.querySelectorAll('.titles a');
   
   for(let link of links){
     link.addEventListener('click', titleClickHandler);
-  }
+  }*/
+
+  //console.log('links');
 
   {
 
@@ -96,7 +98,7 @@
 
       const linkHTML = '<li><a href="#' + ArticleId + '"><span>' + articleTitle + '</span></a></li>';
 
-      /*insert link into html variable*/
+      /* [DONE] insert link into html variable*/
 
       html = html + linkHTML
 
@@ -107,6 +109,12 @@
     titleList.innerHTML = html;
 
     console.log('html');
+
+    const links = document.querySelectorAll('.titles a');
+  
+    for(let link of links){
+      link.addEventListener('click', titleClickHandler);
+  }
 
   }
 
