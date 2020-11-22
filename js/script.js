@@ -56,3 +56,31 @@
   for(let link of links){
     link.addEventListener('click', titleClickHandler);
   }
+
+  {
+
+    const optArticleSelector ='.post',
+          optTitleSelector ='.post-title',
+          optTitleListSelector = '.titles';
+
+    const GenerateTitleLinks = function(){
+      console.log('Title links were generated!')
+
+  
+    /* [DONE] remove contents of titleList*/
+
+    const titleList = document.querySelector(optTitleListSelector);
+
+    titleList.innerHTML = '';
+    
+    /*for each article*/
+    /*Get the article id*/
+    /*find the title element*/
+    /*create html of the link*/
+    /*insert link into titleList*/
+
+  }
+
+  GenerateTitleLinks();
+
+  }
