@@ -73,22 +73,26 @@
 
     titleList.innerHTML = '';
     
-    /*for each article*/
+    /* [DONE] for each article*/
 
     const articles = document.querySelectorAll(optArticleSelector);
 
     for(let article of articles){
 
-      /*Get the article id*/
+      /* [DONE] Get the article id*/
 
       const ArticleId = article.getAttribute('id');
       console.log(ArticleId);
 
-      /*find the title element*/
+      /* [DONE] find the title element*/
 
       const articleTitle = article.querySelector(optTitleSelector).innerHTML;
 
-      /*create html of the link*/
+      /* [DONE] create html of the link*/
+
+      const linkHTML = '<li><a href="#' + ArticleId + '"><span>' + articleTitle + '</span></a></li>';
+      console.log(linkHTML);
+
       /*insert link into titleList*/
 
     }
