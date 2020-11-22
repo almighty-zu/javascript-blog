@@ -72,12 +72,16 @@
     const titleList = document.querySelector(optTitleListSelector);
 
     titleList.innerHTML = '';
+
     
     /* [DONE] for each article*/
-
+    
     const articles = document.querySelectorAll(optArticleSelector);
 
+    let html = '';
+
     for(let article of articles){
+
 
       /* [DONE] Get the article id*/
 
@@ -91,11 +95,18 @@
       /* [DONE] create html of the link*/
 
       const linkHTML = '<li><a href="#' + ArticleId + '"><span>' + articleTitle + '</span></a></li>';
-      console.log(linkHTML);
 
-      /*insert link into titleList*/
+      /*insert link into html variable*/
+
+      html = html + linkHTML
+
+      //titleList.insertAdjacentHTML('afterend', linkHTML);
 
     }
+
+    titleList.innerHTML = html;
+
+    console.log('html');
 
   }
 
