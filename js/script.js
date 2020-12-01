@@ -209,7 +209,7 @@ const titleClickHandler = function (event) {
       /* [DONE] END LOOP: for each found tag link */
     }
 
-    /* execute function "generateTitleLinks" with article selector as argument */
+    /* [DONE] execute function "generateTitleLinks" with article selector as argument */
     GenerateTitleLinks('[data-tags~="' + tag + '"]');
 
   }
@@ -220,11 +220,12 @@ const titleClickHandler = function (event) {
 
     const TagLinks = document.querySelectorAll('a[href^="#tag-"]');
 
-    /* START LOOP: for each link */
+    /* [DONE] START LOOP: for each link */
 
     for (let TagLink of TagLinks){
 
       /* [DONE] add tagClickHandler as event listener for that link */
+
       TagLink.addEventListener('click', tagClickHandler);
 
     /* [DONE] END LOOP: for each link */
