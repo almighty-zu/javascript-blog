@@ -55,7 +55,7 @@ const titleClickHandler = function (event) {
     optArticleTagsSelector = '.post-tags .list';
 
 
-  const GenerateTitleLinks = function () {
+  const GenerateTitleLinks = function(customSelector = ''){
 
     /* [DONE] remove contents of titleList*/
 
@@ -65,7 +65,7 @@ const titleClickHandler = function (event) {
 
     /* [DONE] for each article*/
 
-    const articles = document.querySelectorAll(optArticleSelector);
+    const articles = document.querySelectorAll(optArticleSelector + customSelector);
 
     let html = '';
 
@@ -161,68 +161,77 @@ const titleClickHandler = function (event) {
 
   generateTags();
 
-  //function tagClickHandler(event){
-    //console.log('tagClickHandler');
+  function tagClickHandler(event){
 
     /* [DONE] prevent default action for this event */
 
-    //event.preventDefault();
+    event.preventDefault();
 
-    /* make new constant named "clickedElement" and give it the value of "this" */
-    //const clickedElement = this;
+    /* [DONE] make new constant named "clickedElement" and give it the value of "this" */
 
-    /* make a new constant "href" and read the attribute "href" of the clicked element */
-    //const href = clickedElement.getAttribute('href');
-    //console.log(href);
+    const clickedElement = this;
 
-    /* make a new constant "tag" and extract tag from the "href" constant */
+    /* [DONE] make a new constant "href" and read the attribute "href" of the clicked element */
 
-    //const tag = href.replace('#tag-', '');
+    const href = clickedElement.getAttribute('href');
 
-    /* find all tag links with class active */
+    /* [DONE] make a new constant "tag" and extract tag from the "href" constant */
 
-     //const ActiveTagLinks = document.querySelectorAll('a.active[href^="#tag-"]');
+    const tag = href.replace('#tag-', '');
 
-    /* START LOOP: for each active tag link */
+    /* [DONE] find all tag links with class active */
 
-    //for (let ActiveTagLink of ActiveTagLinks){
+    const ActiveTagLinks = document.querySelectorAll('a.active[href^="#tag-"]');
 
-      /* remove class active */
-      //ActiveTagLink = remove('active');
+    /* [DONE] START LOOP: for each active tag link */
 
-    /* END LOOP: for each active tag link */
-    //}
+    for (let ActiveTagLink of ActiveTagLinks){
 
-    /* find all tag links with "href" attribute equal to the "href" constant */
-    //FoundTagLinks = document.querySelectorAll('a[href="' + href + '"]');
+      /* [DONE] remove class active */
 
-    /* START LOOP: for each found tag link */
-    //for (let FoundTagLink of FoundTagLinks){
+      ActiveTagLink.classList.remove('active');
 
-      /* add class active */
-      //FoundTagLink = add('active');
+    /* [DONE] END LOOP: for each active tag link */
+    }
 
-    /* END LOOP: for each found tag link */
-    //}
+    /* [DONE] find all tag links with "href" attribute equal to the "href" constant */
+
+     const FoundTagLinks = document.querySelectorAll('a[href="' + href + '"]');
+
+    /* [DONE] START LOOP: for each found tag link */
+
+    for (let FoundTagLink of FoundTagLinks){
+
+      /* [DONE] add class active */
+
+      FoundTagLink.classList.add('active');
+
+      /* [DONE] END LOOP: for each found tag link */
+    }
 
     /* execute function "generateTitleLinks" with article selector as argument */
-  //} //GenerateTitleLinks('[data-tags~="' + tag + '"]');
+    GenerateTitleLinks('[data-tags~="' + tag + '"]');
 
-  //function addClickListenersToTags(){
-    /* find all links to tags */
-    //const TagLinks = document.querySelectorAll('a[href^="#tag-"]');
+  }
+
+  function addClickListenersToTags(){
+
+    /* [DONE] find all links to tags */
+
+    const TagLinks = document.querySelectorAll('a[href^="#tag-"]');
 
     /* START LOOP: for each link */
-    //for (let TagLink of TagLinks){
 
-      /* add tagClickHandler as event listener for that link */
-      //TagLink.addEventListener('click', tagClickHandler);
+    for (let TagLink of TagLinks){
 
-    /* END LOOP: for each link */
-  //}
-  //}
+      /* [DONE] add tagClickHandler as event listener for that link */
+      TagLink.addEventListener('click', tagClickHandler);
 
-  //addClickListenersToTags();
+    /* [DONE] END LOOP: for each link */
+    }
+  }
+
+  addClickListenersToTags();
 
 }
 
