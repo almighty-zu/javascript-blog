@@ -237,23 +237,45 @@ const titleClickHandler = function (event) {
 
   function generateAuthors() {
 
-    /*find all articles*/
+    /* [DONE] find all articles*/
 
-    /*start LOOP for every article*/
+    const articles = document.querySelectorAll(optArticleSelector);
+    console.log('found articles', articles);
 
-    /*find tags wrapper*/
+    /* [DONE] start LOOP for every article*/
 
-    /*make html variable with an empty string*/
+    for (let article of articles){
 
-    /*get tags from data-author attribute*/
+     /* [DONE] find author wrapper*/
 
-    /*generate html of the link*/
+    const authorWrapper = article.querySelector(optArticleAuthorSelector);
+    console.log('author wrapper', authorWrapper);
 
-    /*add generated code to the html variable*/
+     /* [DONE] make html variable with an empty string*/
 
-    /*insert HTML of all the links into the authors wrapper*/
+     let html = '';
 
-    /*end LOOP for every article*/
+     /* [DONE] get tags from data-author attribute*/
+
+     const articleAuthor = article.getAttribute('data-author');
+     console.log('article author', articleAuthor);
+
+     /* [DONE] generate html of the link*/
+
+     const authorHTML = '<a href="#author-' + articleAuthor + '">' + articleAuthor + '</a>';
+     console.log('authorHTML', authorHTML);
+
+     /* [DONE] add generated code to the html variable*/
+
+     html = authorHTML + html;
+     console.log(html);
+
+     /* [DONE] insert HTML of all the links into the authors wrapper*/
+
+     authorWrapper.innerHTML = html;
+
+    /* [DONE] end LOOP for every article*/
+    }
   }
 
   generateAuthors();
