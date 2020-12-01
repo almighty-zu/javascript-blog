@@ -234,5 +234,28 @@ const titleClickHandler = function (event) {
 
   addClickListenersToTags();
 
+  function generateAuthors() {
+
+    /*find all articles*/
+
+    /*start LOOP for every article*/
+
+    /*find tags wrapper*/
+
+    /*make html variable with an empty string*/
+
+    /*get tags from data-author attribute*/
+
+    /*generate html of the link*/
+
+    /*add generated code to the html variable*/
+
+    /*insert HTML of all the links into the authors wrapper*/
+
+    /*end LOOP for every article*/
+  }
+
+  generateAuthors();
+
 }
 
