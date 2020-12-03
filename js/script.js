@@ -30,11 +30,11 @@ const titleClickHandler = function(event){
 
   /* [DONE] get 'href' attribute from the clicked link */
 
-  const ArticleSelector = clickedElement.getAttribute('href');
+  const articleSelector = clickedElement.getAttribute('href');
 
   /* [DONE] find the correct article using the selector (value of 'href' attribute) */
 
-  const targetArticle = document.querySelector(ArticleSelector);
+  const targetArticle = document.querySelector(articleSelector);
 
   /* [DONE] add class 'active' to the correct article */
 
@@ -51,7 +51,7 @@ const titleClickHandler = function(event){
     optArticleAuthorSelector = '.post-author';
 
 
-  const GenerateTitleLinks = function(customSelector = ''){
+  const generateTitleLinks = function(customSelector = ''){
 
     /*[DONE] remove contents of titleList*/
 
@@ -69,7 +69,7 @@ const titleClickHandler = function(event){
 
       /*[DONE] Get the article id*/
 
-      const ArticleId = article.getAttribute('id');
+      const articleId = article.getAttribute('id');
 
       /*[DONE] find the title element*/
 
@@ -77,7 +77,7 @@ const titleClickHandler = function(event){
 
       /*[DONE] create html of the link*/
 
-      const linkHTML = '<li><a href="#' + ArticleId + '"><span>' + articleTitle + '</span></a></li>';
+      const linkHTML = '<li><a href="#' + articleId + '"><span>' + articleTitle + '</span></a></li>';
 
       /*[DONE] insert link into html variable*/
 
@@ -96,7 +96,7 @@ const titleClickHandler = function(event){
 
   };
 
-  GenerateTitleLinks();
+  generateTitleLinks();
 
   // eslint-disable-next-line no-inner-declarations
   const generateTags = function(){
@@ -112,8 +112,8 @@ const titleClickHandler = function(event){
 
       /*[DONE] find tags wrapper*/
 
-      const TagsWrapper = article.querySelector(optArticleTagsSelector);
-      console.log('found tags wrapper:', TagsWrapper);
+      const tagsWrapper = article.querySelector(optArticleTagsSelector);
+      console.log('found tags wrapper:', tagsWrapper);
 
       /*[DONE] make html variable with empty string*/
 
@@ -121,12 +121,12 @@ const titleClickHandler = function(event){
 
       /*[DONE] get tags from data-tags attribute*/
 
-      const ArticleTags = article.getAttribute('data-tags');
-      console.log('found tags:', ArticleTags);
+      const articleTags = article.getAttribute('data-tags');
+      console.log('found tags:', articleTags);
 
       /*[DONE] split tags into array*/
 
-      const articleTagsArray = ArticleTags.split(' ');
+      const articleTagsArray = articleTags.split(' ');
       console.log('here is article tags array:', articleTagsArray);
 
       /*[DONE] START LOOP: for each tag*/
@@ -149,7 +149,7 @@ const titleClickHandler = function(event){
 
       /*insert HTML of all the links into the tags wrapper*/
 
-      TagsWrapper.innerHTML = html;
+      tagsWrapper.innerHTML = html;
 
     /*[DONE] END LOOP: for every article*/
     }
@@ -179,36 +179,36 @@ const titleClickHandler = function(event){
 
     /*[DONE] find all tag links with class active*/
 
-    const ActiveTagLinks = document.querySelectorAll('a.active[href^="#tag-"]');
+    const activeTagLinks = document.querySelectorAll('a.active[href^="#tag-"]');
 
     /*[DONE] START LOOP: for each active tag link*/
 
-    for (let ActiveTagLink of ActiveTagLinks){
+    for (let activeTagLink of activeTagLinks){
 
       /*[DONE] remove class active*/
 
-      ActiveTagLink.classList.remove('active');
+      activeTagLink.classList.remove('active');
 
     /*[DONE] END LOOP: for each active tag link*/
     }
 
     /*[DONE] find all tag links with "href" attribute equal to the "href" constant*/
 
-    const FoundTagLinks = document.querySelectorAll('a[href="' + href + '"]');
+    const foundTagLinks = document.querySelectorAll('a[href="' + href + '"]');
 
     /*[DONE] START LOOP: for each found tag link*/
 
-    for (let FoundTagLink of FoundTagLinks){
+    for (let foundTagLink of foundTagLinks){
 
       /*[DONE] add class active*/
 
-      FoundTagLink.classList.add('active');
+      foundTagLink.classList.add('active');
 
       /*[DONE] END LOOP: for each found tag link*/
     }
 
     /* [DONE] execute function "generateTitleLinks" with article selector as argument */
-    GenerateTitleLinks('[data-tags~="' + tag + '"]');
+    generateTitleLinks('[data-tags~="' + tag + '"]');
 
   };
 
@@ -217,15 +217,15 @@ const titleClickHandler = function(event){
 
     /*[DONE] find all links to tags*/
 
-    const TagLinks = document.querySelectorAll('a[href^="#tag-"]');
+    const tagLinks = document.querySelectorAll('a[href^="#tag-"]');
 
     /*[DONE] START LOOP: for each link*/
 
-    for (let TagLink of TagLinks){
+    for (let tagLink of tagLinks){
 
       /*[DONE] add tagClickHandler as event listener for that link*/
 
-      TagLink.addEventListener('click', tagClickHandler);
+      tagLink.addEventListener('click', tagClickHandler);
 
     /*[DONE] END LOOP: for each link*/
     }
@@ -329,7 +329,7 @@ const titleClickHandler = function(event){
 
     /*[DONE] execute function "generateTitleLinks" with article selector as argument*/
 
-    GenerateTitleLinks('[data-author="' + author + '"]');
+    generateTitleLinks('[data-author="' + author + '"]');
   };
 
   // eslint-disable-next-line no-inner-declarations
