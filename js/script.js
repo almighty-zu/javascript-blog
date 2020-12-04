@@ -48,8 +48,8 @@ const titleClickHandler = function(event){
     optTitleSelector = '.post-title',
     optTitleListSelector = '.titles',
     optArticleTagsSelector = '.post-tags .list',
-    optArticleAuthorSelector = '.post-author';
-    optTagsListSelecotr = '.tags.list';
+    optArticleAuthorSelector = '.post-author',
+    optTagsListSelecotr = '.list .tags';
 
 
   const generateTitleLinks = function(customSelector = ''){
@@ -102,6 +102,11 @@ const titleClickHandler = function(event){
   // eslint-disable-next-line no-inner-declarations
   const generateTags = function(){
 
+    /*[DONE] create a new variable allTags with an empty object*/
+
+    let allTags = {};
+    console.log(allTags);
+
     /*[DONE] find all articles*/
 
     const articles = document.querySelectorAll(optArticleSelector);
@@ -145,7 +150,19 @@ const titleClickHandler = function(event){
         html = html + tagHTML;
         console.log('added generated code to html variable', html);
 
-        /*[DONE] END LOOP: for each tag*/
+        /*[DONE] check if this link in NOT already in all tags*/
+
+        if(!allTags[tag]) {
+
+          /*[DONE] Add generated code to allTags object*/
+
+          allTags[tag] = 1;
+        } else {
+          allTags[tag]++;
+        }
+
+
+      /*[DONE] END LOOP: for each tag*/
       }
 
       /*insert HTML of all the links into the tags wrapper*/
@@ -154,6 +171,34 @@ const titleClickHandler = function(event){
 
     /*[DONE] END LOOP: for every article*/
     }
+
+    /*[DONE] find list of tags in the right column*/
+
+    const tagList = document.querySelector('.tags');
+
+    /*add html from allTags to tagsList*/
+    //tagList.innerHTML = allTags.join(' ');
+    //console.log(allTags);
+
+    /*[DONE] create variable for all links HTML code*/
+
+    let allTagsHTML = '';
+
+    /*[DONE] start LOOP: for each tag in allTags*/
+
+    for (let tag in allTags){
+
+      /*[DONE] generate code of a link and add it to allTagsHTML*/
+      //allTagsHTML += tag + ' (' + allTags[tag] +') ';
+
+      allTagsHTML += '<li><a href="#tag-' + tag + '"> ' + tag + '(' + allTags[tag] + ')</a></li>';
+
+    /*END LOOP: for each tag in AllTags:*/
+    }
+
+    /*add HTML from allTagsHTML to tagList*/
+
+    tagList.innerHTML = allTagsHTML;
 
   };
 
@@ -356,4 +401,3 @@ const titleClickHandler = function(event){
   addClickListenersToAuthors();
 
 }
-
