@@ -49,7 +49,9 @@ const titleClickHandler = function(event){
     optTitleListSelector = '.titles',
     optArticleTagsSelector = '.post-tags .list',
     optArticleAuthorSelector = '.post-author',
-    optTagsListSelecotr = '.list .tags';
+    optTagsListSelector = '.list .tags',
+    optCloudClassCount = 5,
+    optCloudClassPrefix = 'tag-size-';
 
 
   const generateTitleLinks = function(customSelector = ''){
