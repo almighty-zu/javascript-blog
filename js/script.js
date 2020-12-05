@@ -100,7 +100,33 @@ const titleClickHandler = function(event){
   generateTitleLinks();
 
   // eslint-disable-next-line no-inner-declarations
+  /*[DONE] Add new function calculateTagsParams*/
+  // eslint-disable-next-line no-inner-declarations
+  const calculateTagsParams = function(tags){
+    console.log('calculate tags params', calculateTagsParams);
+
+    const params = {
+      max: 0,
+      min: 99999
+    }
+
+    for (let tag in tags){
+      console.log(tag + ' is used '+ tags[tag] + ' times ');
+      if(tags[tag] > params.max){
+        params.max = tags[tag];
+      }
+      if(tags[tag] < params.min){
+        params.min = tags[tag];
+      }
+
+    }
+
+    return params;
+  };
+
+  // eslint-disable-next-line no-inner-declarations
   const generateTags = function(){
+    console.log(generateTags);
 
     /*[DONE] create a new variable allTags with an empty object*/
 
@@ -179,6 +205,11 @@ const titleClickHandler = function(event){
     /*add html from allTags to tagsList*/
     //tagList.innerHTML = allTags.join(' ');
     //console.log(allTags);
+
+    /*[DONE] make new const tagsParams*/
+
+    const tagsParams = calculateTagsParams(allTags);
+    console.log('tags params:', tagsParams);
 
     /*[DONE] create variable for all links HTML code*/
 
