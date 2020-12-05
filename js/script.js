@@ -126,6 +126,22 @@ const titleClickHandler = function(event){
     return params;
   };
 
+  /*Add function calculateTagClass*/
+
+  const calculateTagClass = function(count, params) {
+
+    const normalizedCount = count - params.min;
+
+    const normalizedMax = params.max - params.min;
+
+    const percentage = normalizedCount / normalizedMax;
+
+    const classNumber = Math.floor( percentage * (optCloudClassCount - 1) + 1 );
+
+    return optCloudClassPrefix + classNumber;
+
+  }
+
   // eslint-disable-next-line no-inner-declarations
   const generateTags = function(){
     console.log(generateTags);
@@ -224,7 +240,7 @@ const titleClickHandler = function(event){
       /*[DONE] generate code of a link and add it to allTagsHTML*/
       //allTagsHTML += tag + ' (' + allTags[tag] +') ';
 
-      allTagsHTML += '<li><a href="#tag-' + tag + '"> ' + tag + '(' + allTags[tag] + ')</a></li>';
+      allTagsHTML += '<li><a href="#tag-' + tag + '" class="' + calculateTagClass(allTags[tag], tagsParams) + '"> ' + tag + '(' + allTags[tag] + ')</a></li>';
 
     /*END LOOP: for each tag in AllTags:*/
     }
@@ -232,6 +248,7 @@ const titleClickHandler = function(event){
     /*add HTML from allTagsHTML to tagList*/
 
     tagList.innerHTML = allTagsHTML;
+    console.log(allTagsHTML);
 
   };
 
