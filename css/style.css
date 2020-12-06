@@ -115,31 +115,31 @@ body {
   margin-right: 7px;
 }
 
-.tag-size-1 {
+.cloud-element-size-1 {
   font-size: 10px;
   color: orange;
   text-decoration: none;
 }
 
-.tag-size-2 {
+.cloud-element-size-2 {
   font-size: 15px;
   color: pink;
   text-decoration: none;
 }
 
-.tag-size-3 {
+.cloud-element-size-3 {
   color: blue;
   font-size: 20px;
   text-decoration: none;
 }
 
-.tag-size-4 {
+.cloud-element-size-4 {
   color: green;
   font-size: 25px;
   text-decoration: none;
 }
 
-.tag-size-5 {
+.cloud-element-size-5 {
   color: grey;
   font-size: 30px;
   text-decoration: none;
