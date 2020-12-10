@@ -1,14 +1,14 @@
 'use strict';
 
-const templates = {
-  articleLink: Handlebars.compile(document.querySelector('#template-article-link').innerHTML),
-  tagLink: Handlebars.compile(document.querySelector('#template-tag-link').innerHTML),
-  authorLink: Handlebars.compile(document.querySelector('#template-author-link').innerHTML),
-  tagCloudLink: Handlebars.compile(document.querySelector('#template-tag-cloud-link').innerHTML),
-  authorCloudLink: Handlebars.compile(document.querySelector('#template-author-cloud-link').innerHTML)
-}
-
 {
+  const templates = {
+    articleLink: Handlebars.compile(document.querySelector('#template-article-link').innerHTML),
+    tagLink: Handlebars.compile(document.querySelector('#template-tag-link').innerHTML),
+    authorLink: Handlebars.compile(document.querySelector('#template-author-link').innerHTML),
+    tagCloudLink: Handlebars.compile(document.querySelector('#template-tag-cloud-link').innerHTML),
+    authorCloudLink: Handlebars.compile(document.querySelector('#template-author-cloud-link').innerHTML)
+  };
+
   const opts = {
     articleSelector: '.post',
     titleSelector: '.post-title',
@@ -24,7 +24,6 @@ const templates = {
   const titleClickHandler = function(event){
     event.preventDefault();
     const clickedElement = this;
-    console.log(event);
 
     /*[DONE] remove class 'active' from all article links*/
 
@@ -194,7 +193,6 @@ const templates = {
 
         /*[DONE] generate HTML of the link*/
         //const tagHTML = '<li><a href="#tag-' + tag + '"> '+ tag +' </a></li>';
-        //console.log('generated html of the link:', tagHTML);
 
         const linkHTMLData = {tagId: tag, tag: tag};
         const linkHTML = templates.tagLink(linkHTMLData);
